@@ -25,8 +25,10 @@ const useAxios = (baseUrl) => {
     // set piece of state 'axiosResponses' equal to an empty array
     const [axiosResponses, setAxiosResponses] = useState([]);
     // addResponseData() function below makes an AJAX request using the 'baseUrl' passed in to useAxios above (in PokeDex component, pokemon API baseUrl is passed in to useAxios ('useAxios(`https://pokeapi.co/api/v2/pokemon/`)') and to set the state of 'axiosResponses'. In addition, 'pokemonName' is passed in as the ending of the baseUrl (this adds the name of the pokemon to the end of baseUrl so can retrieve data about a specific pokemon) and adds the response data to the piece of state 'responses'
-    const addResponseData = async(endOfUrl = "") => {
+    const addResponseData = async(evt, endOfUrl = "") => {
+         console.log(endOfUrl)
         const response = await axios.get(`${baseUrl}${endOfUrl}`);
+       
         // '...responses' creates a new array with what's already in piece of state 'responses' and adds a newly created object with everything that's in response.data and the id of the response
         setAxiosResponses(data => [...data, { ...response.data, id: uuid() }]);
     };
