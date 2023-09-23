@@ -11,7 +11,7 @@ function PlayingCard({ front, back = backOfCard }) {
   
   return (
     <img
-      // if 'isFacingUp' is true, set src='front' (front={cardData.cards[0].image} is passed in to PlayingCard componet when rendered in PlayingCardList component)
+      // if 'isFacingUp' is true, set src='front' (front={cardData.cards[0].image} (front is passed in when playCard is rendered in PlayingCardList component). 
       // if 'isFacingUp' is false, set src='back'
       src={isFacingUp ? front : back}
       alt="playing card"

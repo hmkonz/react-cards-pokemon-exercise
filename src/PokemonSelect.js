@@ -18,16 +18,16 @@ function PokemonSelect({ addResponseData, pokemon = pokemonList }) {
   return (
     <div>
       <select onChange={handleChange}>
-        {/* loop over array of pokemon names and for every name, create an <option> with the pokemon name from drop down menu */}
+        {/* loop over array of pokemon names and for every name, create an <option> with the pokemon name from drop down menu and its idx */}
         {pokemon.map((name, idx) => (
           <option key={idx} value={idx}>
             {name}
           </option>
         ))}
       </select>
-      {/* when click 'Catch one!' button, execute the "addResponseData" custom hook function (passed in from PokeDex Component). This function makes an axios request that returns the properties of the pokemon with an index of [pokeIdx] (the pokemon in the pokemon array with the index that's stored in state, 'pokeIdx') and creates a new array with what's already in piece of state 'axiosResponses' (set in PokeDex Component) as well as a newly created object with all of response.data and the id of the pokemon selected (pokemon[pokeIdx])) */}
+      {/* when click 'Catch one!' button, execute the "addResponseData" custom hook function (passed in from PokeDex Component). This function makes an axios request that returns the properties of the pokemon with an index of [pokeIdx] (the pokemon in the pokemon array with the index that's stored in state, 'pokeIdx') and creates a new array with what's already in piece of state 'axiosResponses' (set in PokeDex Component) as well as a newly created object with all of the response.data and the id of the pokemon selected (pokemon[pokeIdx])) */}
       <button onClick={() => addResponseData(pokemon[pokeIdx])}>Catch one!</button>
-      {/* when click the 'I'm feeling lucky' button, execute the 'addResponseData' custom hook function with 'choice' function passed in from helpers.js file. The 'choice' function generates a random number and finds the name in the pokemon list that has an index equal to that random number. The 'addResponseData' function returns the properties of the pokemon with the name found from 'choice(pokemon)' and creates a new array with what's already in piece of state 'axiosResponses' (set in PokeDex Component) as well as a newly created object with all of response.data and the id of the pokemon randomly chosen from 'choice(pokemon)'  */}
+      {/* when click the 'I'm feeling lucky' button, execute the 'addResponseData' custom hook function with 'choice' function passed in from helpers.js file. The 'choice' function generates a random number and finds the name in the pokemon list that has an index equal to that random number. The 'addResponseData' function returns the properties of the pokemon with the name found from 'choice(pokemon)' and creates a new array with what's already in piece of state 'axiosResponses' (set in PokeDex Component) as well as a newly created object with all the of response.data and the id of the pokemon randomly chosen from 'choice(pokemon)'  */}
       <button onClick={() => addResponseData(choice(pokemon))}>I'm feeling lucky</button>
     </div>
     

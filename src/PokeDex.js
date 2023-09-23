@@ -16,7 +16,7 @@ function PokeDex() {
     <div className="PokeDex">
       <div className="PokeDex-buttons">
         <h3>Please select your pokemon:</h3>
-        {/* render PokemonSelect component with the function 'addResponseData' passed in as a prop */}
+        {/* render PokemonSelect component with the custom hook function 'addResponseData' passed in as a prop. This creates drop down menu of pokemon names. */}
         <PokemonSelect addResponseData={addResponseData} />
       </div>
       <div className="PokeDex-card-area">

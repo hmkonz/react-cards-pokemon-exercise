@@ -22,12 +22,11 @@ function CardTable() {
     <div className="PlayingCardList">
       <h3>Pick a card, any card!</h3>
       <div>
-        {/* when button is clicked, execute the 'addResponseData' custom hook function */}
-        <button onClick={addResponseData}>Add a playing card!</button>
+        {/* when button is clicked,send THE CALLBACK FUNCTION 'addResponseData'.*/}
+        <button onClick={() => addResponseData()}>Add a playing card!</button>
       </div>
       <div className="PlayingCardList-card-area">
-        {/* map over every response in piece of state 'axiosResponses' and call the PlayingCard component with key and front passed in as props*/}
-        
+        {/* map over every response in piece of state 'axiosResponses' and render the PlayingCard component with 'key' and 'front' passed in as props*/}
         {axiosResponses.map(cardData => (
           <PlayingCard key={cardData.id} front={cardData.cards[0].image} />
         ))}
@@ -36,6 +35,5 @@ function CardTable() {
   );
 }
 
-CardTable.defaultProps = {};
 
 export default CardTable;

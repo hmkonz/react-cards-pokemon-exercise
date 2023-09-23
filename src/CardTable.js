@@ -12,6 +12,7 @@ function CardTable() {
         <h1 className="CardTable-heading">Check out all my cards.</h1>
       </header>
       <main>
+        {/* render card lists for playing cards and pokemon cards */}
         <PlayingCardList />
         <PokeDex />
       </main>
